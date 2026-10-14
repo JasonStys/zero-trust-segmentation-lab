@@ -9,3 +9,7 @@ Fifty-seven reviewed admission cases matched their independent expected decision
 The actual CLI generated JSON, escaped HTML and four export-only nft files. No host networking, Docker, cloud account, private inventory or real credentials were changed/used. Native commands explicitly refused this Windows environment.
 
 Privileged kernel enforcement requires the separate hosted job. Until its actual observations are available, these local checks are not native packet results. [Testing](testing.md) and [security](security.md) explain scope. Account storage evidence remains private; coverage is not proof of security.
+
+## Initial hosted correction
+
+[Initial Validate run 38599731980](https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/38599731980) caught ShellCheck SC2015 in the cleanup helper before native tests began. An ambiguous and/or shortcut was replaced with an explicit if block; no lint suppression, test removal or policy weakening was used. The failed run and logs remain in GitHub history.

@@ -8,16 +8,16 @@
 # shell function: cleanup — line 34
 # shell loop/input: namespace — line 36
 # shell loop/input: pid — line 37
-# shell loop/input: namespace — line 41
-# shell function: create_namespace — line 48
-# shell variable: namespace — line 49
-# shell variable: disable_ipv6 — line 53
-# shell variable: index — line 59
-# shell loop/input: workload — line 60
-# shell variable: namespace — line 61
-# shell variable: index — line 71
-# shell variable: created — line 78
-# shell loop/input: workload — line 80
+# shell loop/input: namespace — line 43
+# shell function: create_namespace — line 50
+# shell variable: namespace — line 51
+# shell variable: disable_ipv6 — line 55
+# shell variable: index — line 61
+# shell loop/input: workload — line 62
+# shell variable: namespace — line 63
+# shell variable: index — line 73
+# shell variable: created — line 80
+# shell loop/input: workload — line 82
 # END CODE MAP
 set -euo pipefail
 
@@ -35,7 +35,9 @@ cleanup() {
   local namespace pid
   for namespace in "${created[@]}"; do
     while read -r pid; do
-      [[ "$pid" =~ ^[0-9]+$ ]] && kill "$pid" 2>/dev/null || true
+      if [[ "$pid" =~ ^[0-9]+$ ]]; then
+        kill "$pid" 2>/dev/null || true
+      fi
     done < <(ip netns pids "$namespace")
   done
   for namespace in "${created[@]}"; do ip netns delete "$namespace"; done
