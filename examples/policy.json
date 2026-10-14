@@ -1,0 +1,48 @@
+{
+  "revision": 1,
+  "created_at": 1000,
+  "expires_at": 1300,
+  "quarantined": [],
+  "endpoints": [
+    {
+      "name": "web",
+      "tenant": "tenant-a",
+      "address": "198.18.0.11",
+      "identity": "spiffe://lab.example/tenant-a/web"
+    },
+    {
+      "name": "api",
+      "tenant": "tenant-a",
+      "address": "198.18.0.12",
+      "identity": "spiffe://lab.example/tenant-a/api"
+    },
+    {
+      "name": "db",
+      "tenant": "tenant-a",
+      "address": "198.18.0.13",
+      "identity": "spiffe://lab.example/tenant-a/db"
+    },
+    {
+      "name": "guest",
+      "tenant": "tenant-b",
+      "address": "198.18.0.14",
+      "identity": "spiffe://lab.example/tenant-b/guest"
+    }
+  ],
+  "rules": [
+    {
+      "source": "web",
+      "target": "api",
+      "port": 8080,
+      "until": null,
+      "ticket": null
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "port": 8080,
+      "until": null,
+      "ticket": null
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Jason Stys: strict typed standard-library runtime and branch coverage across every runtime module.
+[project]
+name = "zero-trust-segmentation-lab"
+version = "1.0.0"
+description = "Default-deny workload policy and isolated native packet assurance by Jason Stys"
+requires-python = ">=3.12"
+dependencies = []
+[tool.ruff]
+target-version = "py312"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+[tool.mypy]
+strict = true
+python_version = "3.12"
+files = ["ztlab"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = ["error"]
+[tool.coverage.run]
+branch = true
+source = ["ztlab"]
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
