@@ -1,0 +1,890 @@
+{
+  "author": "Jason Stys",
+  "scope": "owned disposable Linux namespaces; L4 only, no mTLS",
+  "policy_digest": "b9975ac81548e8828c95112255bbee17d97ec3619af5065f1ccf584ee9d97490",
+  "baseline_successful_channels": 96,
+  "enforced_channels": 96,
+  "allowed": 2,
+  "denied": 94,
+  "invalid_batch_preserved_rules": true,
+  "ingress_egress_independently_required": true,
+  "existing_session_revoked": true,
+  "new_quarantine_flows_denied": true,
+  "reviewed_rollback_restored": true,
+  "tools": {
+    "nft": "nftables v1.0.9 (Old Doc Yak #3)",
+    "ip": "ip utility, iproute2-6.1.0, libbpf 1.3.0",
+    "conntrack": "conntrack v1.4.8 (conntrack-tools)"
+  },
+  "observations": [
+    {
+      "source": "web",
+      "target": "api",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": true,
+      "observed": true
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "api",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "db",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "web",
+      "target": "guest",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "web",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": true,
+      "observed": true
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "db",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "api",
+      "target": "guest",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "web",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "api",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "db",
+      "target": "guest",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "web",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "api",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 4,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 4,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 6,
+      "protocol": "tcp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8080,
+      "expected": false,
+      "observed": false
+    },
+    {
+      "source": "guest",
+      "target": "db",
+      "family": 6,
+      "protocol": "udp",
+      "port": 8081,
+      "expected": false,
+      "observed": false
+    }
+  ],
+  "source_sha": "2653df861c90a87f2d282c372416915e3350e408",
+  "source_run": "https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/38600770675",
+  "source_job_id": 115979132076,
+  "namespace_cleanup": "verified-owned-names-absent; observed Bash wrapper output after native test completed",
+  "policy_digest_scheme": "SHA256 of sorted stdlib JSON with default separators over authored scripts/fixtures.py policy_data"
+}

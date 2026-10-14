@@ -63,6 +63,10 @@ The native job requires explicit hosted-runner opt-in and privileges **inside it
 
 Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](https://www.linkedin.com/in/jason-stys-31b30b351/). MIT-licensed original implementation and synthetic fixtures. No affiliation, government authorization, clearance or compliance certification is claimed.
 
+## Validated evidence
+
+70 tests passed with 100% combined runtime statement/branch coverage. All 57 admission oracles matched. Actual isolated kernel tests verified 96 baseline/enforced channels, live-session revocation and rollback. All seven accepted-source CI jobs passed with zero open CodeQL alerts and zero Actions artifacts/caches. [Measured reports and correction history](docs/validation.md) preserve scope and exact source/run identities; check [current Actions](https://github.com/JasonStys/zero-trust-segmentation-lab/actions) for the current commit.
+
 ## Complete file inventory
 
 <!-- BEGIN FILE GUIDE -->
@@ -80,6 +84,10 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [docs/contributing.md](docs/contributing.md) | Coding and contribution rules. |
 | [docs/performance.md](docs/performance.md) | Complexity and performance methodology. |
 | [docs/release.md](docs/release.md) | Publication and rollback checklist. |
+| [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded policy/matrix analysis timing, not network latency. |
+| [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
+| [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual admission outcomes, L4 matrix and reachability analysis. |
+| [docs/reports/native.json](docs/reports/native.json) | Actual isolated namespace packet, revocation and cleanup evidence. |
 | [docs/research.md](docs/research.md) | Primary-source research and mapping. |
 | [docs/security.md](docs/security.md) | Threat model and limits. |
 | [docs/testing.md](docs/testing.md) | Testing and native enforcement strategy. |

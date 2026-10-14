@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "author": "Jason Stys",
+  "recorded_at_utc": "2026-10-14 16:48:13 UTC",
+  "accepted_source_sha": "2653df861c90a87f2d282c372416915e3350e408",
+  "runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "2653df861c90a87f2d282c372416915e3350e408",
+      "id": 38600770675,
+      "jobs": [
+        {
+          "completed_at": "2026-10-14T16:46:06Z",
+          "conclusion": "success",
+          "id": 115979132076,
+          "name": "Actual isolated IPv4 + IPv6 packets and revocation",
+          "started_at": "2026-10-14T16:45:27Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T16:45:47Z",
+          "conclusion": "success",
+          "id": 115979132435,
+          "name": "Locked graph + secrets + workflows",
+          "started_at": "2026-10-14T16:45:27Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T16:46:30Z",
+          "conclusion": "success",
+          "id": 115979132478,
+          "name": "Policy + graph + compiler / macos-15-intel / 3.14",
+          "started_at": "2026-10-14T16:45:29Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T16:45:51Z",
+          "conclusion": "success",
+          "id": 115979132543,
+          "name": "Policy + graph + compiler / ubuntu-24.04 / 3.14",
+          "started_at": "2026-10-14T16:45:27Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T16:46:36Z",
+          "conclusion": "success",
+          "id": 115979132547,
+          "name": "Policy + graph + compiler / windows-latest / 3.14",
+          "started_at": "2026-10-14T16:45:27Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T16:45:48Z",
+          "conclusion": "success",
+          "id": 115979132645,
+          "name": "Policy + graph + compiler / ubuntu-24.04 / 3.12",
+          "started_at": "2026-10-14T16:45:27Z",
+          "status": "completed"
+        }
+      ],
+      "name": "Validate",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/38600770675"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "2653df861c90a87f2d282c372416915e3350e408",
+      "id": 38600770645,
+      "jobs": [
+        {
+          "completed_at": "2026-10-14T16:46:54Z",
+          "conclusion": "success",
+          "id": 115979130668,
+          "name": "CodeQL / Python",
+          "started_at": "2026-10-14T16:45:39Z",
+          "status": "completed"
+        }
+      ],
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/38600770645"
+    }
+  ],
+  "local_validation": {
+    "python": "3.14.6",
+    "platform": "Windows",
+    "tests_passed": 70,
+    "runtime_statement_branch_coverage_percent": 100,
+    "statements": 374,
+    "branches": 122,
+    "property_examples": {
+      "parser": 200,
+      "flow_oracle": 300
+    }
+  },
+  "browser_smoke": {
+    "case_rows": 57,
+    "scripts": 0,
+    "external_assets": 0,
+    "scoped_column_headers": 6,
+    "scope": "Local generated report structure; not a comprehensive accessibility/cross-browser audit"
+  },
+  "security": {
+    "open_codeql_alerts": 0,
+    "actions_artifacts": 0,
+    "actions_cache_bytes": 0
+  },
+  "earlier_corrections": {
+    "failed_validate_run": "https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/38599731980",
+    "shellcheck": "SC2015 cleanup expression replaced with explicit if",
+    "codeql": "Wildcard listeners replaced by exact owned namespace bindings; no alert dismissal",
+    "edge_case": "Empty-graph clock validation now explicit"
+  },
+  "limits": "Accepted implementation source only; documentation commit must be separately checked. Native L4 controls and synthetic identity/posture admission are separate lab layers, not a production zero-trust deployment."
+}

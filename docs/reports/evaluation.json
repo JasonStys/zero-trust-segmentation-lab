@@ -1,0 +1,1620 @@
+{
+  "author": "Jason Stys",
+  "case_count": 57,
+  "case_sha256": "62f03368a9339a0f1e3566e319793f125d88bd9f2f8dff57feb5c3bd6079fe10",
+  "cases": [
+    {
+      "decision": {
+        "allowed": true,
+        "reason": "verified-admission",
+        "revision": 1
+      },
+      "expected": true,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "web-api-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "web-api-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "web-api-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "web-api-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "db"
+      },
+      "id": "web-db-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "db"
+      },
+      "id": "web-db-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "web",
+        "target": "db"
+      },
+      "id": "web-db-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "web",
+        "target": "db"
+      },
+      "id": "web-db-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "guest"
+      },
+      "id": "web-guest-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "guest"
+      },
+      "id": "web-guest-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "web",
+        "target": "guest"
+      },
+      "id": "web-guest-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "web",
+        "target": "guest"
+      },
+      "id": "web-guest-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "web"
+      },
+      "id": "api-web-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "web"
+      },
+      "id": "api-web-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "api",
+        "target": "web"
+      },
+      "id": "api-web-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "api",
+        "target": "web"
+      },
+      "id": "api-web-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": true,
+        "reason": "verified-admission",
+        "revision": 1
+      },
+      "expected": true,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "db"
+      },
+      "id": "api-db-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "db"
+      },
+      "id": "api-db-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "api",
+        "target": "db"
+      },
+      "id": "api-db-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "api",
+        "target": "db"
+      },
+      "id": "api-db-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "guest"
+      },
+      "id": "api-guest-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "guest"
+      },
+      "id": "api-guest-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "api",
+        "target": "guest"
+      },
+      "id": "api-guest-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "api",
+        "target": "guest"
+      },
+      "id": "api-guest-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "web"
+      },
+      "id": "db-web-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "web"
+      },
+      "id": "db-web-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "db",
+        "target": "web"
+      },
+      "id": "db-web-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "db",
+        "target": "web"
+      },
+      "id": "db-web-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "api"
+      },
+      "id": "db-api-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "api"
+      },
+      "id": "db-api-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "db",
+        "target": "api"
+      },
+      "id": "db-api-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "db",
+        "target": "api"
+      },
+      "id": "db-api-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "guest"
+      },
+      "id": "db-guest-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "guest"
+      },
+      "id": "db-guest-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "db",
+        "target": "guest"
+      },
+      "id": "db-guest-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "db",
+        "target": "guest"
+      },
+      "id": "db-guest-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "web"
+      },
+      "id": "guest-web-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "web"
+      },
+      "id": "guest-web-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "web"
+      },
+      "id": "guest-web-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "web"
+      },
+      "id": "guest-web-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "api"
+      },
+      "id": "guest-api-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "api"
+      },
+      "id": "guest-api-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "api"
+      },
+      "id": "guest-api-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "api"
+      },
+      "id": "guest-api-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "db"
+      },
+      "id": "guest-db-tcp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "db"
+      },
+      "id": "guest-db-tcp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "db"
+      },
+      "id": "guest-db-udp-8080",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "db"
+      },
+      "id": "guest-db-udp-8081",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "unverified-proof",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-missing",
+      "oracle_match": true,
+      "proof_mode": "missing"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "unverified-proof",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-tampered",
+      "oracle_match": true,
+      "proof_mode": "tampered"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "identity-binding",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-wrong-identity",
+      "oracle_match": true,
+      "proof_mode": "wrong-identity"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "identity-binding",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-wrong-source",
+      "oracle_match": true,
+      "proof_mode": "wrong-source"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "unhealthy-posture",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-unhealthy",
+      "oracle_match": true,
+      "proof_mode": "unhealthy"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "stale-posture",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-expired",
+      "oracle_match": true,
+      "proof_mode": "expired"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "stale-posture",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-future",
+      "oracle_match": true,
+      "proof_mode": "future"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "stale-policy-proof",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      },
+      "id": "proof-old-policy",
+      "oracle_match": true,
+      "proof_mode": "old-policy"
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "unknown-workload",
+        "revision": 1
+      },
+      "expected": false,
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "unknown",
+        "target": "api"
+      },
+      "id": "unknown-workload",
+      "oracle_match": true,
+      "proof_mode": "valid"
+    }
+  ],
+  "evaluated_at_tick": 1000,
+  "limits": "Offline admission and L4 projection. Demo MAC proofs are not mTLS identities. Graph paths do not grant direct connectivity. Native packet evidence is a separate hosted test.",
+  "mode": "synthetic-admission",
+  "oracle_matches": 57,
+  "policy_sha256": "dae5cc67adfdb23212fe58c52e1466196f9be9f1960b16ccadb5a9050d326f24",
+  "possible_application_pivots": {
+    "api": [
+      "db"
+    ],
+    "db": [],
+    "guest": [],
+    "web": [
+      "api",
+      "db"
+    ]
+  },
+  "revision": 1,
+  "schema_version": 1,
+  "transport_matrix": [
+    {
+      "decision": {
+        "allowed": true,
+        "reason": "explicit-rule",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "api",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "api",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "api",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "api",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "api",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "api",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "api",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "db",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "db",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "db",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "db",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "db",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "db",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "db",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "guest",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "guest",
+        "target": "web"
+      }
+    },
+    {
+      "decision": {
+        "allowed": true,
+        "reason": "explicit-rule",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "web",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "web",
+        "target": "api"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "web",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "default-deny",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "web",
+        "target": "db"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "tcp",
+        "source": "web",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8080,
+        "protocol": "udp",
+        "source": "web",
+        "target": "guest"
+      }
+    },
+    {
+      "decision": {
+        "allowed": false,
+        "reason": "tenant-boundary",
+        "revision": 1
+      },
+      "flow": {
+        "port": 8081,
+        "protocol": "udp",
+        "source": "web",
+        "target": "guest"
+      }
+    }
+  ]
+}
