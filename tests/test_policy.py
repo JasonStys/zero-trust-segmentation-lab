@@ -1,43 +1,47 @@
 """Jason Stys: actual admission decisions, exact identity/freshness binding, quarantine, graph and exporter regression."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# definition: policy — line 59
-# definition: test_default_deny_and_attestation — line 64
-# variable: engine — line 66
-# variable: flow — line 67
-# variable: proof — line 68
-# variable: mode — line 70
-# variable: changed — line 84
-# variable: overlong — line 86
-# definition: test_exception_quarantine_and_diff — line 111
-# variable: before — line 113
-# variable: data — line 114
-# variable: after — line 125
-# variable: delta — line 128
-# variable: isolated — line 136
-# variable: cycle_data — line 150
-# variable: values — line 155
-# definition: test_compiler_and_matrix — line 158
-# variable: current — line 160
-# variable: rows — line 161
-# variable: row — line 162
-# variable: api — line 163
-# variable: database — line 163
-# variable: guest — line 163
-# variable: web — line 163
-# variable: name — line 164
-# variable: exported — line 171
-# variable: line — line 173
-# variable: name — line 175
-# variable: number — line 175
-# variable: changed — line 183
-# variable: row — line 188
-# definition: test_independent_exact_flow_oracle — line 199
-# parameter: port — line 200
-# parameter: protocol — line 200
-# parameter: source — line 200
-# parameter: target — line 200
-# variable: engine — line 203
-# variable: expected — line 204
+# definition: policy — line 63
+# definition: test_invalid_clock_with_empty_graph — line 69
+# parameter: now — line 69
+# variable: current — line 71
+# variable: operation — line 72
+# definition: test_default_deny_and_attestation — line 79
+# variable: engine — line 81
+# variable: flow — line 82
+# variable: proof — line 83
+# variable: mode — line 85
+# variable: changed — line 99
+# variable: overlong — line 101
+# definition: test_exception_quarantine_and_diff — line 126
+# variable: before — line 128
+# variable: data — line 129
+# variable: after — line 140
+# variable: delta — line 143
+# variable: isolated — line 151
+# variable: cycle_data — line 165
+# variable: values — line 170
+# definition: test_compiler_and_matrix — line 173
+# variable: current — line 175
+# variable: rows — line 176
+# variable: row — line 177
+# variable: api — line 178
+# variable: database — line 178
+# variable: guest — line 178
+# variable: web — line 178
+# variable: name — line 179
+# variable: exported — line 186
+# variable: line — line 188
+# variable: name — line 190
+# variable: number — line 190
+# variable: changed — line 198
+# variable: row — line 203
+# definition: test_independent_exact_flow_oracle — line 214
+# parameter: port — line 215
+# parameter: protocol — line 215
+# parameter: source — line 215
+# parameter: target — line 215
+# variable: engine — line 218
+# variable: expected — line 219
 # END CODE MAP
 
 from __future__ import annotations
@@ -59,6 +63,17 @@ from ztlab.evidence import proof_fixture
 def policy() -> Policy:
     """Build the reviewed immutable four-workload policy for controlled tests."""
     return Policy.from_json(policy_data())
+
+
+@pytest.mark.parametrize("now", [-1, True, 2**31])
+def test_invalid_clock_with_empty_graph(now: int) -> None:
+    """Time validity cannot be skipped just because an inventory has no edges or distinct peer pairs."""
+    current = replace(policy(), endpoints=(policy().endpoints[0],), rules=())
+    for operation in (allowed_flows, matrix, reachable):
+        with pytest.raises(ContractError):
+            operation(current, now)
+    with pytest.raises(ContractError):
+        difference(current, current, now)
 
 
 def test_default_deny_and_attestation() -> None:

@@ -3,42 +3,42 @@
 # definition: allowed_flows — line 54
 # parameter: now — line 54
 # parameter: policy — line 54
-# variable: engine — line 56
-# variable: rule — line 59
-# definition: matrix — line 66
-# parameter: now — line 66
-# parameter: policy — line 66
-# variable: declared — line 68
-# variable: item — line 68
-# variable: negative — line 69
-# variable: port — line 69
-# variable: ports — line 70
-# variable: engine — line 71
-# variable: rows — line 72
-# variable: source — line 73
-# variable: target — line 74
-# variable: protocol — line 77
-# variable: port — line 78
-# variable: flow — line 79
-# definition: reachable — line 89
-# parameter: now — line 89
-# parameter: policy — line 89
-# variable: graph — line 91
-# variable: item — line 91
-# variable: _ — line 92
-# variable: source — line 92
-# variable: target — line 92
-# variable: result — line 94
-# variable: source — line 95
-# variable: seen — line 96
-# variable: queue — line 97
-# variable: target — line 99
-# definition: difference — line 107
-# parameter: after — line 107
-# parameter: before — line 107
-# parameter: now — line 107
-# variable: new — line 109
-# variable: old — line 109
+# variable: engine — line 57
+# variable: rule — line 60
+# definition: matrix — line 67
+# parameter: now — line 67
+# parameter: policy — line 67
+# variable: declared — line 70
+# variable: item — line 70
+# variable: negative — line 71
+# variable: port — line 71
+# variable: ports — line 72
+# variable: engine — line 73
+# variable: rows — line 74
+# variable: source — line 75
+# variable: target — line 76
+# variable: protocol — line 79
+# variable: port — line 80
+# variable: flow — line 81
+# definition: reachable — line 91
+# parameter: now — line 91
+# parameter: policy — line 91
+# variable: graph — line 93
+# variable: item — line 93
+# variable: _ — line 94
+# variable: source — line 94
+# variable: target — line 94
+# variable: result — line 96
+# variable: source — line 97
+# variable: seen — line 98
+# variable: queue — line 99
+# variable: target — line 101
+# definition: difference — line 109
+# parameter: after — line 109
+# parameter: before — line 109
+# parameter: now — line 109
+# variable: new — line 111
+# variable: old — line 111
 # END CODE MAP
 
 from __future__ import annotations
@@ -48,11 +48,12 @@ from dataclasses import asdict
 from typing import Any
 
 from ztlab.admission import Attester, Engine
-from ztlab.contracts import Flow, Policy
+from ztlab.contracts import Flow, Policy, integer
 
 
 def allowed_flows(policy: Policy, now: int) -> set[tuple[str, str, int]]:
     """Return effective directed TCP permissions after validity, tenant, quarantine and exception checks."""
+    integer(now, 0, 2**31 - 1)
     engine = Engine(policy, Attester())
     return {
         (rule.source, rule.target, rule.port)
@@ -65,6 +66,7 @@ def allowed_flows(policy: Policy, now: int) -> set[tuple[str, str, int]]:
 
 def matrix(policy: Policy, now: int) -> list[dict[str, Any]]:
     """Evaluate every distinct workload pair, TCP/UDP and declared ports plus a closed negative port."""
+    integer(now, 0, 2**31 - 1)
     declared = {item.port for item in policy.rules}
     negative = next(port for port in range(8081, 8090) if port not in declared)
     ports = sorted(declared | {negative})
