@@ -1,135 +1,137 @@
 """Jason Stys: actual IPv4/IPv6 TCP/UDP and state-revocation tests inside owned hosted-runner namespaces only."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 152
-# variable: NAMES — line 159
-# variable: ADDRESSES — line 160
-# variable: index — line 162
-# variable: name — line 162
-# variable: PAYLOAD — line 164
-# definition: guard — line 167
-# parameter: namespace — line 167
-# definition: receive — line 181
-# parameter: stream — line 181
-# variable: content — line 183
-# variable: chunk — line 185
-# variable: content — line 188
-# definition: listen — line 192
-# parameter: family — line 192
-# parameter: port — line 192
-# parameter: protocol — line 192
-# parameter: ready — line 192
-# variable: kind — line 194
-# variable: listener — line 195
-# variable: _ — line 205
-# variable: peer — line 205
-# variable: _ — line 208
-# variable: connection — line 208
-# variable: thread — line 209
-# definition: serve_connection — line 215
-# parameter: connection — line 215
-# variable: _ — line 220
-# definition: server — line 228
-# parameter: namespace — line 228
-# variable: events — line 231
-# variable: family — line 232
-# variable: protocol — line 233
-# variable: port — line 234
-# variable: ready — line 235
-# variable: event — line 240
-# definition: exchange — line 246
-# parameter: protocol — line 246
-# parameter: stream — line 246
-# definition: probe — line 252
-# parameter: address — line 253
-# parameter: hold — line 253
-# parameter: namespace — line 253
-# parameter: port — line 253
-# parameter: protocol — line 253
-# variable: pair — line 258
-# variable: value — line 258
-# variable: family — line 263
-# variable: kind — line 264
-# variable: stream — line 265
-# variable: reachable — line 269
-# variable: reachable — line 271
-# variable: reachable — line 276
+# variable: ROOT — line 154
+# variable: NAMES — line 161
+# variable: ADDRESSES — line 162
+# variable: index — line 164
+# variable: name — line 164
+# variable: PAYLOAD — line 166
+# definition: guard — line 169
+# parameter: namespace — line 169
+# definition: receive — line 183
+# parameter: stream — line 183
+# variable: content — line 185
+# variable: chunk — line 187
+# variable: content — line 190
+# definition: listen — line 194
+# parameter: address — line 195
+# parameter: family — line 195
+# parameter: port — line 195
+# parameter: protocol — line 195
+# parameter: ready — line 195
+# variable: kind — line 198
+# variable: listener — line 199
+# variable: _ — line 209
+# variable: peer — line 209
+# variable: _ — line 212
+# variable: connection — line 212
+# variable: thread — line 213
+# definition: serve_connection — line 219
+# parameter: connection — line 219
+# variable: _ — line 224
+# definition: server — line 232
+# parameter: namespace — line 232
+# variable: events — line 235
+# variable: family — line 236
+# variable: protocol — line 237
+# variable: port — line 238
+# variable: ready — line 239
+# variable: address — line 240
+# variable: event — line 249
+# definition: exchange — line 255
+# parameter: protocol — line 255
+# parameter: stream — line 255
+# definition: probe — line 261
+# parameter: address — line 262
+# parameter: hold — line 262
+# parameter: namespace — line 262
+# parameter: port — line 262
+# parameter: protocol — line 262
+# variable: pair — line 267
+# variable: value — line 267
+# variable: family — line 272
+# variable: kind — line 273
+# variable: stream — line 274
 # variable: reachable — line 278
-# definition: command — line 282
-# parameter: arguments — line 283
-# parameter: check — line 283
-# parameter: content — line 283
-# definition: namespace_command — line 296
-# parameter: arguments — line 297
-# parameter: namespace — line 297
-# parameter: options — line 297
-# definition: reset_state — line 303
-# parameter: namespace — line 303
-# definition: apply — line 308
-# parameter: namespace — line 308
-# parameter: replacing — line 308
-# parameter: rules — line 308
-# variable: batch — line 310
-# definition: read_ready — line 315
-# parameter: process — line 315
-# definition: run — line 322
-# parameter: opted_in — line 322
-# parameter: prefix — line 322
-# variable: policy — line 332
-# variable: engine — line 333
-# variable: name — line 334
-# variable: namespaces — line 334
-# variable: servers — line 335
-# variable: held — line 336
-# variable: observations — line 337
-# variable: name — line 339
-# variable: namespace — line 340
-# variable: process — line 341
-# variable: combinations — line 360
-# variable: source — line 362
-# variable: target — line 363
-# variable: family — line 365
-# variable: protocol — line 366
-# variable: port — line 367
-# definition: observed — line 370
-# parameter: family — line 371
-# parameter: port — line 371
-# parameter: protocol — line 371
-# parameter: source — line 371
-# parameter: target — line 371
-# variable: namespace — line 374
-# variable: response — line 375
-# variable: family — line 393
-# variable: port — line 393
-# variable: protocol — line 393
-# variable: source — line 393
-# variable: target — line 393
-# variable: name — line 398
-# variable: family — line 401
-# variable: port — line 401
-# variable: protocol — line 401
-# variable: source — line 401
-# variable: target — line 401
-# variable: expected — line 402
-# variable: actual — line 406
-# variable: before — line 422
-# variable: invalid — line 425
-# variable: after — line 431
-# variable: reduced — line 436
-# variable: rule — line 439
-# variable: name — line 441
-# variable: held — line 449
-# variable: quarantined — line 475
-# variable: _ — line 479
-# variable: output — line 479
-# variable: name — line 490
-# variable: process — line 496
-# variable: report — line 498
-# variable: row — line 506
-# variable: row — line 507
-# variable: process — line 526
-# definition: main — line 536
-# variable: parser — line 538
-# variable: args — line 547
+# variable: reachable — line 280
+# variable: reachable — line 285
+# variable: reachable — line 287
+# definition: command — line 291
+# parameter: arguments — line 292
+# parameter: check — line 292
+# parameter: content — line 292
+# definition: namespace_command — line 305
+# parameter: arguments — line 306
+# parameter: namespace — line 306
+# parameter: options — line 306
+# definition: reset_state — line 312
+# parameter: namespace — line 312
+# definition: apply — line 317
+# parameter: namespace — line 317
+# parameter: replacing — line 317
+# parameter: rules — line 317
+# variable: batch — line 319
+# definition: read_ready — line 324
+# parameter: process — line 324
+# definition: run — line 331
+# parameter: opted_in — line 331
+# parameter: prefix — line 331
+# variable: policy — line 341
+# variable: engine — line 342
+# variable: name — line 343
+# variable: namespaces — line 343
+# variable: servers — line 344
+# variable: held — line 345
+# variable: observations — line 346
+# variable: name — line 348
+# variable: namespace — line 349
+# variable: process — line 350
+# variable: combinations — line 369
+# variable: source — line 371
+# variable: target — line 372
+# variable: family — line 374
+# variable: protocol — line 375
+# variable: port — line 376
+# definition: observed — line 379
+# parameter: family — line 380
+# parameter: port — line 380
+# parameter: protocol — line 380
+# parameter: source — line 380
+# parameter: target — line 380
+# variable: namespace — line 383
+# variable: response — line 384
+# variable: family — line 402
+# variable: port — line 402
+# variable: protocol — line 402
+# variable: source — line 402
+# variable: target — line 402
+# variable: name — line 407
+# variable: family — line 410
+# variable: port — line 410
+# variable: protocol — line 410
+# variable: source — line 410
+# variable: target — line 410
+# variable: expected — line 411
+# variable: actual — line 415
+# variable: before — line 431
+# variable: invalid — line 434
+# variable: after — line 440
+# variable: reduced — line 445
+# variable: rule — line 448
+# variable: name — line 450
+# variable: held — line 458
+# variable: quarantined — line 484
+# variable: _ — line 488
+# variable: output — line 488
+# variable: name — line 499
+# variable: process — line 505
+# variable: report — line 507
+# variable: row — line 515
+# variable: row — line 516
+# variable: process — line 535
+# definition: main — line 545
+# variable: parser — line 547
+# variable: args — line 556
 # END CODE MAP
 
 from __future__ import annotations
@@ -189,14 +191,16 @@ def receive(stream: socket.socket) -> bytes:
     return content
 
 
-def listen(family: int, protocol: str, port: int, ready: threading.Event) -> None:
+def listen(
+    family: int, protocol: str, port: int, address: str, ready: threading.Event
+) -> None:
     """Serve a fixed harmless frame on one isolated namespace socket; no incoming command or payload is executed."""
     kind = socket.SOCK_STREAM if protocol == "tcp" else socket.SOCK_DGRAM
     with socket.socket(family, kind) as listener:
         if family == socket.AF_INET6:
             listener.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 1)
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        listener.bind(("::" if family == socket.AF_INET6 else "0.0.0.0", port))
+        listener.bind((address, port))
         if protocol == "tcp":
             listener.listen(32)
         ready.set()
@@ -233,8 +237,13 @@ def server(namespace: str) -> None:
         for protocol in ("tcp", "udp"):
             for port in (8080, 8081):
                 ready = threading.Event()
+                address = ADDRESSES[namespace.rsplit("-", 1)[1]][
+                    family == socket.AF_INET6
+                ]
                 threading.Thread(
-                    target=listen, args=(family, protocol, port, ready), daemon=True
+                    target=listen,
+                    args=(family, protocol, port, address, ready),
+                    daemon=True,
                 ).start()
                 events.append(ready)
     if not all(event.wait(5) for event in events):

@@ -13,3 +13,5 @@ Privileged kernel enforcement requires the separate hosted job. Until its actual
 ## Initial hosted correction
 
 [Initial Validate run 38599731980](https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/38599731980) caught ShellCheck SC2015 in the cleanup helper before native tests began. An ambiguous and/or shortcut was replaced with an explicit if block; no lint suppression, test removal or policy weakening was used. The failed run and logs remain in GitHub history.
+
+CodeQL identified wildcard listener bindings in the isolated test servers. They were changed to bind exact owned namespace addresses, rather than suppressing/dismissing the alert. Subsequent kernel and security scans must confirm the change before accepted evidence is published.

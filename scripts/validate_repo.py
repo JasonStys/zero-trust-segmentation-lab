@@ -109,6 +109,7 @@ def main() -> None:
     )
     assert "ip netns delete" in native and "netns delete -all" not in native
     assert "flush ruleset" not in (ROOT / "scripts/native.py").read_text()
+    assert "listener.bind((address, port))" in (ROOT / "scripts/native.py").read_text()
     print(
         f"Privacy/pin/link/fixture/native-isolation gates: {len(names)} tracked files passed"
     )
