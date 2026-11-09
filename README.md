@@ -27,6 +27,16 @@ The demo uses synthetic clock tick 1000, not today's timestamp. See [usage](docs
 - **Safe evidence:** metadata-only JSON and escaped script-free HTML; generated files stay ignored/private. POSIX modes are restrictive; Windows inherits parent ACLs. No encryption is claimed.
 - **DevSecOps:** OS/Python test matrix, strict types/style, hash-locked development graph, dependency audit, Gitleaks, actionlint, shellcheck and CodeQL. No Actions artifacts/caches, including implicit CodeQL caches.
 
+## Preview dependency continuity before expiry
+
+```console
+python -m ztlab.cli continuity --requirements examples/continuity-requirements.json --start 1000 --end 1300 --out out/continuity-review
+```
+
+Open `continuity.html` for owner-authored direct allow/deny expectations, actual original engine decisions and a review queue. The example requires web→api and api→db while forbidding direct web→db. At tick1299 the two dependencies work; at policy expiry tick1300 both become denied and appear for owner review. Required connectivity never grants an exception or overrides quarantine.
+
+The preview checks every policy-created, policy-expiry and temporary-exception boundary within a bounded3600-tick interval, plus the preceding tick and interval endpoints. Exact policy/requirement byte hashes and revision remain attached. Duplicate/contradictory requirements, unknown peers and ambiguous scopes fail. This models **transport permissions only**; it does not predict changing posture, live sessions, real routing, identity/mTLS admission or application health. No rules are applied, policy renewed or message sent. Existing isolated kernel assurance remains separate.
+
 ## Documentation
 
 - [Architecture and decisions](docs/architecture.md)
@@ -65,7 +75,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 
 ## Validated evidence
 
-70 tests passed with 100% combined runtime statement/branch coverage. All 57 admission oracles matched. Actual isolated kernel tests verified 96 baseline/enforced channels, live-session revocation and rollback. All seven accepted-source CI jobs passed with zero open CodeQL alerts and zero Actions artifacts/caches. [Measured reports and correction history](docs/validation.md) preserve scope and exact source/run identities; check [current Actions](https://github.com/JasonStys/zero-trust-segmentation-lab/actions) for the current commit.
+The historical accepted-source baseline passed70 tests; the November9 continuity update locally passes81 tests at100% combined runtime coverage. [Continuity validation](docs/reports/continuity-2026-11-09.md). All 57 admission oracles matched. Actual isolated kernel tests verified 96 baseline/enforced channels, live-session revocation and rollback. All seven accepted-source CI jobs passed with zero open CodeQL alerts and zero Actions artifacts/caches. [Measured reports and correction history](docs/validation.md) preserve scope and exact source/run identities; check [current Actions](https://github.com/JasonStys/zero-trust-segmentation-lab/actions) for the current commit.
 
 ## Complete file inventory
 
@@ -86,6 +96,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [docs/release.md](docs/release.md) | Publication and rollback checklist. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded policy/matrix analysis timing, not network latency. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
+| [docs/reports/continuity-2026-11-09.md](docs/reports/continuity-2026-11-09.md) | Transport continuity preview validation — November 9, 2026. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual admission outcomes, L4 matrix and reachability analysis. |
 | [docs/reports/native.json](docs/reports/native.json) | Actual isolated namespace packet, revocation and cleanup evidence. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
@@ -94,6 +105,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [docs/testing.md](docs/testing.md) | Testing and native enforcement strategy. |
 | [docs/usage.md](docs/usage.md) | Usage and troubleshooting. |
 | [docs/validation.md](docs/validation.md) | Validation evidence. |
+| [examples/continuity-requirements.json](examples/continuity-requirements.json) | Owner-authored fictional direct availability and isolation expectations for expiry review. |
 | [examples/policy.json](examples/policy.json) | Reviewed four-workload inventory and exact TCP segmentation rules. |
 | [examples/requests.jsonl](examples/requests.jsonl) | Deterministic admission regression inputs and independent expected decisions. |
 | [pyproject.toml](pyproject.toml) | Jason Stys: strict typed standard-library runtime and branch coverage across every runtime module. |
@@ -107,6 +119,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [scripts/native.sh](scripts/native.sh) | Jason Stys: create and clean only owned disposable CI network namespaces; never touch host interfaces/firewall. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Jason Stys: privacy, exact fixture provenance, tracked-source and no-cache SHA-pinned workflow gates. |
+| [tests/test\_continuity.py](tests/test_continuity.py) | Jason Stys: direct dependency invariant and exact synthetic-time boundary regressions. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | Jason Stys: strict policy boundaries, ambiguous JSON rejection and bounded inventory/rule invariants. |
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: real CLI outputs, exact fixture oracles, input limits, escaping, private permissions and no overwrite. |
 | [tests/test\_native\_guard.py](tests/test_native_guard.py) | Jason Stys: native test guard regressions require no privileges and make no network changes. |
@@ -117,6 +130,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [ztlab/analysis.py](ztlab/analysis.py) | Jason Stys: finite transport matrices, bounded BFS pivot analysis and exact policy-change blast-radius deltas. |
 | [ztlab/cli.py](ztlab/cli.py) | Jason Stys: read-only evaluation and policy-diff CLI; local execution never applies network changes. |
 | [ztlab/compiler.py](ztlab/compiler.py) | Jason Stys: deterministic namespace-scoped nftables projection; exports rules but never applies them. |
+| [ztlab/continuity.py](ztlab/continuity.py) | Jason Stys: non-enforcing transport permission timeline and owner-authored dependency invariants. |
 | [ztlab/contracts.py](ztlab/contracts.py) | Jason Stys: bounded strict inventory, flow and rule contracts; no paths or labels are interpreted as commands. |
 | [ztlab/evidence.py](ztlab/evidence.py) | Jason Stys: bounded synthetic admission replay and exclusive metadata-only JSON/HTML/nft evidence outputs. |
 
