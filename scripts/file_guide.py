@@ -4,27 +4,27 @@
 # variable: BEGIN — line 36
 # variable: END — line 36
 # variable: SPECIAL — line 37
-# definition: purpose — line 52
-# parameter: name — line 52
-# variable: text — line 56
-# variable: lines — line 61
-# variable: index — line 62
-# variable: line — line 62
-# variable: description — line 64
-# variable: continuation — line 66
-# variable: description — line 72
-# definition: main — line 77
-# variable: parser — line 79
-# variable: args — line 81
-# variable: names — line 82
-# variable: rows — line 90
-# variable: name — line 91
-# variable: label — line 92
-# variable: path — line 94
-# variable: original — line 95
-# variable: end — line 96
-# variable: start — line 96
-# variable: expected — line 97
+# definition: purpose — line 53
+# parameter: name — line 53
+# variable: text — line 57
+# variable: lines — line 62
+# variable: index — line 63
+# variable: line — line 63
+# variable: description — line 65
+# variable: continuation — line 67
+# variable: description — line 73
+# definition: main — line 78
+# variable: parser — line 80
+# variable: args — line 82
+# variable: names — line 83
+# variable: rows — line 91
+# variable: name — line 92
+# variable: label — line 93
+# variable: path — line 95
+# variable: original — line 96
+# variable: end — line 97
+# variable: start — line 97
+# variable: expected — line 98
 # END CODE MAP
 
 import argparse
@@ -35,6 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "examples/continuity-requirements.json": "Owner-authored fictional direct availability and isolation expectations for expiry review.",
     ".gitignore": "Exclude private diagnostics, builds, environments and generated fuzz artifacts.",
     ".gitattributes": "Consistent LF text checkouts across operating systems.",
     "LICENSE": "MIT license for Jason Stys's authored code.",

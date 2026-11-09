@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "requirements": [
+    {
+      "id": "web-api",
+      "owner": "application-owner",
+      "flow": {
+        "source": "web",
+        "target": "api",
+        "protocol": "tcp",
+        "port": 8080
+      },
+      "expect": "allow"
+    },
+    {
+      "id": "api-db",
+      "owner": "database-owner",
+      "flow": {
+        "source": "api",
+        "target": "db",
+        "protocol": "tcp",
+        "port": 8080
+      },
+      "expect": "allow"
+    },
+    {
+      "id": "no-direct-web-db",
+      "owner": "security-owner",
+      "flow": {
+        "source": "web",
+        "target": "db",
+        "protocol": "tcp",
+        "port": 8080
+      },
+      "expect": "deny"
+    }
+  ]
+}
