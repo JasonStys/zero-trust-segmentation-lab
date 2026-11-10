@@ -33,9 +33,9 @@ The demo uses synthetic clock tick 1000, not today's timestamp. See [usage](docs
 python -m ztlab.cli continuity --requirements examples/continuity-requirements.json --start 1000 --end 1300 --out out/continuity-review
 ```
 
-Open `continuity.html` for owner-authored direct allow/deny expectations, actual original engine decisions and a review queue. The example requires web→api and api→db while forbidding direct web→db. At tick1299 the two dependencies work; at policy expiry tick1300 both become denied and appear for owner review. Required connectivity never grants an exception or overrides quarantine.
+Open `continuity.html` for owner-authored direct allow/deny expectations, actual original engine decisions and a review queue. The example requires web→api and api→db while forbidding direct web→db. At tick 1299 the two dependencies work; at policy expiry tick 1300 both become denied and appear for owner review. Required connectivity never grants an exception or overrides quarantine.
 
-The preview checks every policy-created, policy-expiry and temporary-exception boundary within a bounded3600-tick interval, plus the preceding tick and interval endpoints. Exact policy/requirement byte hashes and revision remain attached. Duplicate/contradictory requirements, unknown peers and ambiguous scopes fail. This models **transport permissions only**; it does not predict changing posture, live sessions, real routing, identity/mTLS admission or application health. No rules are applied, policy renewed or message sent. Existing isolated kernel assurance remains separate.
+The preview checks every policy-created, policy-expiry and temporary-exception boundary within a bounded 3600-tick interval, plus the preceding tick and interval endpoints. Exact policy/requirement byte hashes and revision remain attached. Duplicate/contradictory requirements, unknown peers and ambiguous scopes fail. This models **transport permissions only**; it does not predict changing posture, live sessions, real routing, identity/mTLS admission or application health. No rules are applied, policy renewed or message sent. Existing isolated kernel assurance remains separate.
 
 ## Documentation
 
@@ -75,7 +75,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 
 ## Validated evidence
 
-The historical accepted-source baseline passed70 tests; the November9 continuity update locally passes81 tests at100% combined runtime coverage. [Continuity validation](docs/reports/continuity-2026-11-09.md). All 57 admission oracles matched. Actual isolated kernel tests verified 96 baseline/enforced channels, live-session revocation and rollback. All seven accepted-source CI jobs passed with zero open CodeQL alerts and zero Actions artifacts/caches. [Measured reports and correction history](docs/validation.md) preserve scope and exact source/run identities; check [current Actions](https://github.com/JasonStys/zero-trust-segmentation-lab/actions) for the current commit.
+The historical accepted-source baseline passed 70 tests; the November 9 continuity update locally passes 81 tests at 100% combined runtime coverage. [Continuity validation](docs/reports/continuity-2026-11-09.md). All 57 admission oracles matched. Actual isolated kernel tests verified 96 baseline/enforced channels, live-session revocation and rollback. All seven accepted-source CI jobs passed with zero open CodeQL alerts and zero Actions artifacts/caches. [Measured reports and correction history](docs/validation.md) preserve scope and exact source/run identities; check [current Actions](https://github.com/JasonStys/zero-trust-segmentation-lab/actions) for the current commit.
 
 ## Complete file inventory
 
@@ -92,14 +92,18 @@ The historical accepted-source baseline passed70 tests; the November9 continuity
 | [docs/architecture.md](docs/architecture.md) | Architecture and decisions. |
 | [docs/contracts.md](docs/contracts.md) | Configuration and admission contracts. |
 | [docs/contributing.md](docs/contributing.md) | Coding and contribution rules. |
+| [docs/handbook.md](docs/handbook.md) | Zero-Trust Segmentation Lab handbook. |
 | [docs/performance.md](docs/performance.md) | Complexity and performance methodology. |
 | [docs/release.md](docs/release.md) | Publication and rollback checklist. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded policy/matrix analysis timing, not network latency. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
 | [docs/reports/continuity-2026-11-09.md](docs/reports/continuity-2026-11-09.md) | Transport continuity preview validation — November 9, 2026. |
+| [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual admission outcomes, L4 matrix and reachability analysis. |
 | [docs/reports/native.json](docs/reports/native.json) | Actual isolated namespace packet, revocation and cleanup evidence. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
+| [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
+| [docs/reports/publications.json](docs/reports/publications.json) | Exact publication hashes, reviewed page identities and source/evidence baselines. |
 | [docs/research.md](docs/research.md) | Primary-source research and mapping. |
 | [docs/security.md](docs/security.md) | Threat model and limits. |
 | [docs/testing.md](docs/testing.md) | Testing and native enforcement strategy. |
@@ -117,6 +121,7 @@ The historical accepted-source baseline passed70 tests; the November9 continuity
 | [scripts/fixtures.py](scripts/fixtures.py) | Jason Stys: generate deterministic reviewed inventory and admission oracles from independent scenario definitions. |
 | [scripts/native.py](scripts/native.py) | Jason Stys: actual IPv4/IPv6 TCP/UDP and state-revocation tests inside owned hosted-runner namespaces only. |
 | [scripts/native.sh](scripts/native.sh) | Jason Stys: create and clean only owned disposable CI network namespaces; never touch host interfaces/firewall. |
+| [scripts/publication\_text.py](scripts/publication_text.py) | Jason Stys: inspect only named reviewed Office editions without hiding their XML. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Jason Stys: privacy, exact fixture provenance, tracked-source and no-cache SHA-pinned workflow gates. |
 | [tests/test\_continuity.py](tests/test_continuity.py) | Jason Stys: direct dependency invariant and exact synthetic-time boundary regressions. |
@@ -124,6 +129,7 @@ The historical accepted-source baseline passed70 tests; the November9 continuity
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: real CLI outputs, exact fixture oracles, input limits, escaping, private permissions and no overwrite. |
 | [tests/test\_native\_guard.py](tests/test_native_guard.py) | Jason Stys: native test guard regressions require no privileges and make no network changes. |
 | [tests/test\_policy.py](tests/test_policy.py) | Jason Stys: actual admission decisions, exact identity/freshness binding, quarantine, graph and exporter regression. |
+| [tests/test\_publication\_text.py](tests/test_publication_text.py) | Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content. |
 | [tools.lock.json](tools.lock.json) | Official Linux scanner versions, URLs and SHA256 digests. |
 | [ztlab/\_\_init\_\_.py](ztlab/__init__.py) | Jason Stys: offline segmentation evaluation; importing this package changes no network state. |
 | [ztlab/admission.py](ztlab/admission.py) | Jason Stys: caller-bound synthetic attestation and per-request policy decisions independent of network location. |
@@ -135,3 +141,9 @@ The historical accepted-source baseline passed70 tests; the November9 continuity
 | [ztlab/evidence.py](ztlab/evidence.py) | Jason Stys: bounded synthetic admission replay and exclusive metadata-only JSON/HTML/nft evidence outputs. |
 
 <!-- END FILE GUIDE -->
+
+## Documentation editions
+
+Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
+
+[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.

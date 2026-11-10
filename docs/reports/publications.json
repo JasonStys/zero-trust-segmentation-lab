@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "project": "zero-trust-segmentation-lab",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "a685d91f52f89d4d5c5707ec32039b0585ac8fa5",
+  "sourceUrl": "https://github.com/JasonStys/zero-trust-segmentation-lab/tree/a685d91f52f89d4d5c5707ec32039b0585ac8fa5",
+  "functionalEvidenceBaseline": "a685d91f52f89d4d5c5707ec32039b0585ac8fa5",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42712910519,
+      "event": "push",
+      "headSha": "a685d91f52f89d4d5c5707ec32039b0585ac8fa5",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/42712910519"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42712910395,
+      "event": "push",
+      "headSha": "a685d91f52f89d4d5c5707ec32039b0585ac8fa5",
+      "name": "Validate",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/zero-trust-segmentation-lab/actions/runs/42712910395"
+    }
+  ],
+  "summary": "Evaluate owner-authored continuity requirements at policy and exception boundaries with a hash-bound review queue.",
+  "rationale": "Shows upcoming access changes without granting access, renewing exceptions or assuming transitive trust.",
+  "limitations": [
+    "The review previews declared transport access; it does not establish live identity/posture, sessions or service health.",
+    "Continuity requirements are assertions, not policy grants or automatic exception renewal.",
+    "Native enforcement examples operate in isolated lab namespaces, not an automatically deployed production firewall, cloud or device boundary."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 43281,
+      "sha256": "1925caade91f46c301b5f233f8922ff579120d71fc5d05803e6a04e127990bdd",
+      "sourceBaseline": "a685d91f52f89d4d5c5707ec32039b0585ac8fa5",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 4,
+        "renderedPageSha256": {
+          "page-1.png": "ba2004480a0abf1dc99a7fa3affdf75c2ad5eb28a0a4c208e0f15d1f133ee399",
+          "page-2.png": "d16406c87b2912f2a1f463e703b1ae1dd96cf948a2d6dc1e1494fdb9a189c10a",
+          "page-3.png": "bb68f960bbaa43bcb63efd14335bc5fe44d3df03c8f0267c8619238cef1c785f",
+          "page-4.png": "a23f0a7d7e235d7a1ae948f2782cdea61677c5e8e74f4f08fa0dc674dc06a0cf"
+        }
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}
