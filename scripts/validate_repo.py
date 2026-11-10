@@ -1,20 +1,20 @@
 """Jason Stys: privacy, exact fixture provenance, tracked-source and no-cache SHA-pinned workflow gates."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 29
-# definition: main — line 35
-# variable: names — line 37
-# variable: name — line 53
-# variable: path — line 54
-# variable: text — line 57
-# variable: target — line 62
-# variable: action — line 72
-# variable: word — line 76
-# variable: row — line 84
-# variable: codeql — line 86
-# variable: value — line 89
-# variable: path — line 99
-# variable: word — line 102
-# variable: native — line 104
+# variable: ROOT — line 34
+# definition: main — line 40
+# variable: names — line 42
+# variable: name — line 58
+# variable: path — line 59
+# variable: text — line 62
+# variable: target — line 67
+# variable: action — line 77
+# variable: word — line 81
+# variable: row — line 89
+# variable: codeql — line 91
+# variable: value — line 94
+# variable: path — line 104
+# variable: word — line 107
+# variable: native — line 109
 # END CODE MAP
 
 from __future__ import annotations
@@ -25,6 +25,11 @@ import subprocess
 import sys
 import tomllib
 from pathlib import Path
+
+if __package__:
+    from .publication_text import public_text
+else:
+    from publication_text import public_text
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -54,7 +59,7 @@ def main() -> None:
         path = ROOT / name
         assert path.is_file() and not name.startswith(("out/", ".venv/", ".tools/"))
         assert not re.search(r"\.(?:pem|key|env)(?:$|[.-])", name)
-        text = path.read_text(encoding="utf-8")
+        text = public_text(path, ROOT)
         assert not re.search(
             r"(?:ghp_|github_pat_)[A-Za-z0-9]{20,}|BEGIN [A-Z ]*PRIVATE KEY", text
         )
