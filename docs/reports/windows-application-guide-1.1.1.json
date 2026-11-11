@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "repository": "zero-trust-segmentation-lab",
+  "runtimeVersion": "1.1.1",
+  "runtimeSource": "bc5084b4f432e849711a640a22f3f893bee5bf0b",
+  "createdAt": "2026-11-11T09:42:51.162Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide-1.1.1.docx",
+  "sha256": "f78ba7c9eee49ee6fc688e786e721932ed58e247552639254cf39d25620d3f36",
+  "screenshots": [
+    {
+      "file": "owner-unknown-review.png",
+      "sha256": "5e202786625427f9c087f40fc7349a50c3a8b483e7174336088aebb59c11f580",
+      "width": 1276,
+      "height": 899,
+      "caption": "A separate workflow in the same installed workbench preserves its original review state and evidence rather than replacing it with a generic success message."
+    },
+    {
+      "file": "selected-evidence.png",
+      "sha256": "000afc4a3e4ff7c2a115f26b913b9463da6263f4b9279dff0342fe02a2a0830f",
+      "width": 1276,
+      "height": 899,
+      "caption": "The installed workbench displays its accepted analysis and selected original evidence. These are fictional test inputs, not collected production records."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "ztlab/desktop_state.py",
+      "first": 219,
+      "last": 231,
+      "sha256": "50b93172e64fc60f5ebe7661120ca9a9e292f8eab4f874d3f6b1f7fce980c47f",
+      "url": "https://github.com/JasonStys/zero-trust-segmentation-lab/blob/bc5084b4f432e849711a640a22f3f893bee5bf0b/ztlab/desktop_state.py#L219"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Actual installed workflows",
+      "observed": "Full original domain, review and export controls passed two normal native launches; all 5 saved bundles retained exact original bytes.",
+      "result": "Passed"
+    },
+    {
+      "name": "Old-to-new profile",
+      "observed": "The actual installed 1.1.0 app created a synthetic profile; installed 1.1.1 reopened it and retained all 5 exact bundles without reset.",
+      "result": "Passed"
+    },
+    {
+      "name": "Source and distribution",
+      "observed": "Exact-main workflows and processed CodeQL passed with zero open main alerts. Five downloaded assets and installed files matched their verified SHA-256 identities.",
+      "result": "Verified"
+    },
+    {
+      "name": "PC and links",
+      "observed": "Existing links were backed up and retargeted with settings retained. Normal profiles and Docker were unchanged; default-profile shortcut activation remains separately untested.",
+      "result": "Verified"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "ooxmlSchema": "passed",
+    "pages": [
+      {
+        "page": 1,
+        "sha256": "f17c405d6591527f614faf93ad4352c5cfde4900122dc2e41adbe40b65ae9701",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 2,
+        "sha256": "f0890d468e66edb3933d15d1a5de2ab4695386e0d13e31aab9e49c26eb0f02e9",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 3,
+        "sha256": "751d6d51456d2c14041007ab513da2bbfd91f62168cd60d695054ed8a301a1ff",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 4,
+        "sha256": "1351545486cc225d3e9d27dca19637042e61c8ec3911fffe1a86d46dbd57059f",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      }
+    ],
+    "checkedUtc": "2026-11-11T10:23:06.209602+00:00",
+    "method": "All final page content individually inspected by root or named peers; only exact pixel identity carries prior individual inspection."
+  }
+}
