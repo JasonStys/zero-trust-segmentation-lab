@@ -31,3 +31,8 @@ Graph transitivity reports a possible compromised-service pivot, not a routing p
 ## ADR-004: safe publication
 
 Only synthetic source/fixtures and measured synthetic reports are public. Outputs are exclusive, local and ignored. Runtime has no network calls or subprocess imports. Privileged native routines are separate guarded CI scripts. No artifact/cache upload is permitted, including CodeQL's internal caching.
+
+
+## Native offline workbench 1.1.0
+
+[Actual graphical workflows, private owner-local storage, limits and Windows packaging](native-workbench.md). Existing CLI/domain/security gates remain. The native source adapter uses the actual project engines, not prerecorded results or a separate demo app; historical evidence stays bound to its original dated source.

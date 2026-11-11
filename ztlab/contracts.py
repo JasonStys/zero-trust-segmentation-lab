@@ -1,92 +1,102 @@
 """Jason Stys: bounded strict inventory, flow and rule contracts; no paths or labels are interpreted as commands."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# definition: ContractError — line 103
-# definition: pairs — line 107
-# parameter: items — line 107
-# variable: output — line 109
-# variable: key — line 110
-# variable: value — line 110
-# definition: reject_number — line 117
-# parameter: value — line 117
-# definition: parse — line 122
-# parameter: raw — line 122
-# variable: text — line 127
-# definition: canonical — line 140
-# parameter: value — line 140
-# definition: digest — line 147
-# parameter: value — line 147
-# definition: fields — line 152
-# parameter: names — line 152
+# definition: ContractError — line 115
+# definition: pairs — line 119
+# parameter: items — line 119
+# variable: output — line 121
+# variable: key — line 122
+# variable: value — line 122
+# definition: reject_number — line 129
+# parameter: value — line 129
+# definition: parse — line 134
+# parameter: raw — line 134
+# variable: text — line 139
+# definition: canonical — line 152
 # parameter: value — line 152
-# definition: identifier — line 159
+# definition: digest — line 159
 # parameter: value — line 159
-# definition: integer — line 166
-# parameter: maximum — line 166
-# parameter: minimum — line 166
-# parameter: value — line 166
-# definition: Endpoint — line 174
-# variable: name — line 177
-# variable: tenant — line 178
-# variable: address — line 179
-# variable: identity — line 180
-# definition: from_json — line 183
-# parameter: cls — line 183
-# parameter: value — line 183
-# variable: data — line 185
-# variable: name — line 186
-# variable: tenant — line 186
-# variable: address — line 188
-# definition: Flow — line 200
-# variable: source — line 203
-# variable: target — line 204
-# variable: protocol — line 205
-# variable: port — line 206
-# definition: from_json — line 209
-# parameter: cls — line 209
-# parameter: value — line 209
-# variable: data — line 211
-# definition: Rule — line 223
-# variable: source — line 226
-# variable: target — line 227
-# variable: port — line 228
-# variable: until — line 229
-# variable: ticket — line 230
-# definition: from_json — line 233
-# parameter: cls — line 233
-# parameter: value — line 233
-# variable: data — line 235
-# variable: until — line 236
-# variable: ticket — line 239
-# definition: Policy — line 252
-# variable: revision — line 255
-# variable: created_at — line 256
-# variable: expires_at — line 257
-# variable: endpoints — line 258
-# variable: rules — line 259
-# variable: quarantined — line 260
-# definition: from_json — line 263
-# parameter: cls — line 263
-# parameter: value — line 263
-# variable: data — line 265
-# variable: revision — line 276
-# variable: created — line 277
-# variable: expires — line 277
-# variable: endpoints — line 292
-# variable: item — line 292
-# variable: item — line 293
-# variable: known — line 293
-# variable: item — line 295
-# variable: item — line 298
-# variable: rules — line 298
-# variable: item — line 300
-# variable: item — line 301
-# variable: rule — line 304
-# variable: item — line 317
-# variable: quarantined — line 317
-# definition: load_policy — line 326
-# parameter: path — line 326
-# variable: stream — line 328
-# variable: raw — line 329
+# definition: fields — line 164
+# parameter: names — line 164
+# parameter: value — line 164
+# definition: identifier — line 171
+# parameter: value — line 171
+# definition: integer — line 178
+# parameter: maximum — line 178
+# parameter: minimum — line 178
+# parameter: value — line 178
+# definition: Endpoint — line 186
+# variable: name — line 189
+# variable: tenant — line 190
+# variable: address — line 191
+# variable: identity — line 192
+# definition: from_json — line 195
+# parameter: cls — line 195
+# parameter: value — line 195
+# variable: data — line 197
+# variable: name — line 198
+# variable: tenant — line 198
+# variable: address — line 200
+# definition: Flow — line 212
+# variable: source — line 215
+# variable: target — line 216
+# variable: protocol — line 217
+# variable: port — line 218
+# definition: from_json — line 221
+# parameter: cls — line 221
+# parameter: value — line 221
+# variable: data — line 223
+# definition: Rule — line 235
+# variable: source — line 238
+# variable: target — line 239
+# variable: port — line 240
+# variable: until — line 241
+# variable: ticket — line 242
+# definition: from_json — line 245
+# parameter: cls — line 245
+# parameter: value — line 245
+# variable: data — line 247
+# variable: until — line 248
+# variable: ticket — line 251
+# definition: Policy — line 264
+# variable: revision — line 267
+# variable: created_at — line 268
+# variable: expires_at — line 269
+# variable: endpoints — line 270
+# variable: rules — line 271
+# variable: quarantined — line 272
+# definition: from_json — line 275
+# parameter: cls — line 275
+# parameter: value — line 275
+# variable: data — line 277
+# variable: revision — line 288
+# variable: created — line 289
+# variable: expires — line 289
+# variable: endpoints — line 304
+# variable: item — line 304
+# variable: item — line 305
+# variable: known — line 305
+# variable: item — line 307
+# variable: item — line 310
+# variable: rules — line 310
+# variable: item — line 312
+# variable: item — line 313
+# variable: rule — line 316
+# variable: item — line 329
+# variable: quarantined — line 329
+# definition: read_source — line 338
+# parameter: limit — line 338
+# parameter: path — line 338
+# variable: absolute — line 340
+# variable: item — line 343
+# variable: flags — line 346
+# variable: descriptor — line 352
+# variable: stream — line 353
+# variable: info — line 354
+# variable: named — line 355
+# variable: raw — line 363
+# definition: load_policy — line 369
+# parameter: path — line 369
+# variable: raw — line 371
 # END CODE MAP
 
 from __future__ import annotations
@@ -94,7 +104,9 @@ from __future__ import annotations
 import hashlib
 import ipaddress
 import json
+import os
 import re
+import stat
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -323,8 +335,38 @@ class Policy:
         return cls(revision, created, expires, endpoints, rules, quarantined)
 
 
+def read_source(path: Path, limit: int) -> bytes:
+    """Read only bounded ordinary one-link bytes from one nonblocking descriptor; refuse reparse paths and replacements."""
+    absolute = path.absolute()
+    if any(
+        item.is_symlink() or item.is_junction()
+        for item in (absolute, *absolute.parents)
+    ):
+        raise ContractError("linked input path")
+    flags = (
+        os.O_RDONLY
+        | getattr(os, "O_BINARY", 0)
+        | getattr(os, "O_NOFOLLOW", 0)
+        | getattr(os, "O_NONBLOCK", 0)
+    )
+    descriptor = os.open(absolute, flags)
+    with os.fdopen(descriptor, "rb") as stream:
+        info = os.fstat(stream.fileno())
+        named = absolute.lstat()
+        if (
+            not stat.S_ISREG(info.st_mode)
+            or info.st_nlink != 1
+            or info.st_size > limit
+            or (named.st_dev, named.st_ino) != (info.st_dev, info.st_ino)
+        ):
+            raise ContractError("bounded ordinary unchanged input required")
+        raw = stream.read(limit + 1)
+        if len(raw) != info.st_size or len(raw) > limit:
+            raise ContractError("input changed or exceeded byte limit")
+    return raw
+
+
 def load_policy(path: Path) -> tuple[Policy, str]:
     """Read a bounded policy and return exact byte provenance; no network or execution occurs."""
-    with path.open("rb") as stream:
-        raw = stream.read(65537)
+    raw = read_source(path, 65536)
     return Policy.from_json(parse(raw)), hashlib.sha256(raw).hexdigest()

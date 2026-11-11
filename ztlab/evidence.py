@@ -20,36 +20,35 @@
 # parameter: now — line 120
 # parameter: policy — line 120
 # parameter: policy_sha — line 120
-# variable: stream — line 123
-# variable: raw — line 124
-# variable: lines — line 125
-# variable: line — line 129
-# variable: engine — line 132
-# variable: rows — line 133
-# variable: seen — line 134
-# variable: line — line 135
-# variable: case — line 136
-# variable: case_id — line 137
-# variable: flow — line 145
-# variable: decision — line 146
-# variable: row — line 170
-# definition: private_file — line 178
-# parameter: content — line 178
-# parameter: path — line 178
-# variable: descriptor — line 180
-# variable: stream — line 181
-# definition: render — line 185
-# parameter: report — line 185
-# variable: rows — line 187
-# variable: value — line 191
-# variable: row — line 201
-# variable: name — line 213
-# definition: save — line 223
-# parameter: directory — line 223
-# parameter: now — line 223
-# parameter: policy — line 223
-# parameter: report — line 223
-# variable: endpoint — line 232
+# variable: raw — line 123
+# variable: lines — line 124
+# variable: line — line 128
+# variable: engine — line 131
+# variable: rows — line 132
+# variable: seen — line 133
+# variable: line — line 134
+# variable: case — line 135
+# variable: case_id — line 136
+# variable: flow — line 144
+# variable: decision — line 145
+# variable: row — line 169
+# definition: private_file — line 177
+# parameter: content — line 177
+# parameter: path — line 177
+# variable: descriptor — line 179
+# variable: stream — line 180
+# definition: render — line 184
+# parameter: report — line 184
+# variable: rows — line 186
+# variable: value — line 190
+# variable: row — line 200
+# variable: name — line 212
+# definition: save — line 222
+# parameter: directory — line 222
+# parameter: now — line 222
+# parameter: policy — line 222
+# parameter: report — line 222
+# variable: endpoint — line 231
 # END CODE MAP
 
 from __future__ import annotations
@@ -73,6 +72,7 @@ from ztlab.contracts import (
     identifier,
     integer,
     parse,
+    read_source,
 )
 
 MODES = (
@@ -120,8 +120,7 @@ def evaluate(
     policy: Policy, policy_sha: str, cases_path: Path, now: int
 ) -> dict[str, Any]:
     """Read bounded reviewed cases and grade actual admission decisions; oracle labels never choose policy outcomes."""
-    with cases_path.open("rb") as stream:
-        raw = stream.read(131073)
+    raw = read_source(cases_path, 131072)
     lines = raw.splitlines()
     if (
         len(raw) > 131072
