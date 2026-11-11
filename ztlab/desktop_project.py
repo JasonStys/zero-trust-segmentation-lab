@@ -143,7 +143,7 @@ from .evidence import evaluate, proof_fixture, save
 
 ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 PRODUCT, PROFILE = "zero-trust-segmentation-lab", "ZeroTrustSegmentationLab"
-TITLE, VERSION = "Zero-Trust Segmentation Workbench", "1.1.0"
+TITLE, VERSION = "Zero-Trust Segmentation Workbench", "1.1.1"
 COLUMNS = ("Flow / owner", "Protocol / port", "Original reason", "Permission / change")
 RESOURCES = (
     "examples/policy.json",

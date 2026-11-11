@@ -81,6 +81,14 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 
 The historical accepted-source baseline passed 70 tests; the November 9 continuity update locally passes 81 tests at 100% combined runtime coverage. [Continuity validation](docs/reports/continuity-2026-11-09.md). All 57 admission oracles matched. Actual isolated kernel tests verified 96 baseline/enforced channels, live-session revocation and rollback. All seven accepted-source CI jobs passed with zero open CodeQL alerts and zero Actions artifacts/caches. [Measured reports and correction history](docs/validation.md) preserve scope and exact source/run identities; check [current Actions](https://github.com/JasonStys/zero-trust-segmentation-lab/actions) for the current commit.
 
+## Native profile storage correction
+
+Version 1.1.1 rejects pre-existing linked/nonregular fixed profile and SQLite
+sidecar entries before initialization can write through an alias. Ordinary
+recovery files and existing profile schemas remain supported; no data is reset.
+See the [confirmed fixture, recovery tests and scope](docs/reports/profile-admission-2026-11-11.md).
+Earlier native releases and documentation retain their own dated evidence.
+
 ## Complete file inventory
 
 <!-- BEGIN FILE GUIDE -->
@@ -110,6 +118,7 @@ The historical accepted-source baseline passed 70 tests; the November 9 continui
 | [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native segmentation workbench validation. |
 | [docs/reports/native.json](docs/reports/native.json) | Actual isolated namespace packet, revocation and cleanup evidence. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
+| [docs/reports/profile-admission-2026-11-11.md](docs/reports/profile-admission-2026-11-11.md) | Fixed profile entry admission — November 11, 2026. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
 | [docs/reports/publications.json](docs/reports/publications.json) | Exact publication hashes, reviewed page identities and source/evidence baselines. |
 | [docs/research.md](docs/research.md) | Primary-source research and mapping. |
@@ -146,6 +155,7 @@ The historical accepted-source baseline passed 70 tests; the November 9 continui
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: real CLI outputs, exact fixture oracles, input limits, escaping, private permissions and no overwrite. |
 | [tests/test\_native\_guard.py](tests/test_native_guard.py) | Jason Stys: native test guard regressions require no privileges and make no network changes. |
 | [tests/test\_policy.py](tests/test_policy.py) | Jason Stys: actual admission decisions, exact identity/freshness binding, quarantine, graph and exporter regression. |
+| [tests/test\_profile\_admission.py](tests/test_profile_admission.py) | Actual pre-existing alias refusal and ordinary SQLite recovery continuity. Jason Stys. |
 | [tests/test\_publication\_text.py](tests/test_publication_text.py) | Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content. |
 | [tests/test\_reader\_races.py](tests/test_reader_races.py) | Actual opened-device and POSIX regular-to-FIFO replacement regressions for bounded readers. Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Official Linux scanner versions, URLs and SHA256 digests. |
