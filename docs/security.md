@@ -25,3 +25,8 @@ Native tests use only four peer addresses on a private namespace bridge. No upli
 - SHA256 provenance is not a signed attestation. Coverage and scanners do not prove absence of bugs or compliance.
 
 Use only owned or explicitly authorized environments. Never apply generated rules to a workstation/production host. Contact [Jason Stys](https://github.com/JasonStys) without uploading private inventory, credentials, proofs or sensitive reports publicly.
+
+
+## Native offline workbench 1.1.0
+
+[Actual graphical workflows, private owner-local storage, limits and Windows packaging](native-workbench.md). Existing CLI/domain/security gates remain. The native source adapter uses the actual project engines, not prerecorded results or a separate demo app; historical evidence stays bound to its original dated source.

@@ -1,52 +1,51 @@
 """Jason Stys: non-enforcing transport permission timeline and owner-authored dependency invariants."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# definition: preview — line 67
-# parameter: end — line 68
-# parameter: policy_path — line 68
-# parameter: requirements_path — line 68
-# parameter: start — line 68
-# variable: path — line 73
-# variable: p — line 77
-# variable: policy — line 82
-# variable: sha — line 82
-# variable: stream — line 83
-# variable: raw — line 84
-# variable: data — line 85
-# variable: requirements — line 93
-# variable: seen_ids — line 94
-# variable: seen_flows — line 95
-# variable: e — line 96
-# variable: known — line 96
-# variable: item — line 97
-# variable: row — line 98
-# variable: name — line 99
-# variable: owner — line 99
-# variable: flow — line 100
-# variable: boundaries — line 115
-# variable: r — line 116
-# variable: b — line 118
-# variable: t — line 118
-# variable: ticks — line 118
-# variable: ticks — line 119
-# variable: engine — line 120
-# variable: timeline — line 121
-# variable: previous — line 122
-# variable: queue — line 123
-# variable: tick — line 124
-# variable: allowed — line 125
-# variable: checks — line 126
-# variable: item — line 127
-# variable: decision — line 128
-# variable: matches — line 129
-# variable: check — line 130
-# variable: previous — line 150
-# definition: publish — line 166
-# parameter: output — line 166
-# parameter: result — line 166
-# variable: target — line 168
-# variable: p — line 169
-# variable: text — line 172
-# variable: page — line 174
+# definition: preview — line 74
+# parameter: end — line 75
+# parameter: policy_path — line 75
+# parameter: requirements_path — line 75
+# parameter: start — line 75
+# variable: path — line 80
+# variable: p — line 84
+# variable: policy — line 89
+# variable: sha — line 89
+# variable: raw — line 90
+# variable: data — line 91
+# variable: requirements — line 99
+# variable: seen_ids — line 100
+# variable: seen_flows — line 101
+# variable: e — line 102
+# variable: known — line 102
+# variable: item — line 103
+# variable: row — line 104
+# variable: name — line 105
+# variable: owner — line 105
+# variable: flow — line 106
+# variable: boundaries — line 121
+# variable: r — line 122
+# variable: b — line 124
+# variable: t — line 124
+# variable: ticks — line 124
+# variable: ticks — line 125
+# variable: engine — line 126
+# variable: timeline — line 127
+# variable: previous — line 128
+# variable: queue — line 129
+# variable: tick — line 130
+# variable: allowed — line 131
+# variable: checks — line 132
+# variable: item — line 133
+# variable: decision — line 134
+# variable: matches — line 135
+# variable: check — line 136
+# variable: previous — line 156
+# definition: publish — line 172
+# parameter: output — line 172
+# parameter: result — line 172
+# variable: target — line 174
+# variable: p — line 175
+# variable: text — line 178
+# variable: page — line 180
 # END CODE MAP
 
 from __future__ import annotations
@@ -60,7 +59,15 @@ from typing import Any
 
 from ztlab.admission import Attester, Engine
 from ztlab.analysis import allowed_flows
-from ztlab.contracts import Flow, fields, identifier, integer, load_policy, parse
+from ztlab.contracts import (
+    Flow,
+    fields,
+    identifier,
+    integer,
+    load_policy,
+    parse,
+    read_source,
+)
 from ztlab.evidence import private_file
 
 
@@ -80,8 +87,7 @@ def preview(
         ):
             raise ValueError("ordinary nonlinked policy/requirements required")
     policy, sha = load_policy(policy_path)
-    with requirements_path.open("rb") as stream:
-        raw = stream.read(65537)
+    raw = read_source(requirements_path, 65536)
     data = fields(parse(raw), {"schema", "requirements"})
     if (
         type(data["schema"]) is not int

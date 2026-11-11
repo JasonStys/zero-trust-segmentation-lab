@@ -1,5 +1,9 @@
 # Zero-Trust Segmentation Lab
 
+## Native Windows workbench
+
+The complete portable graphical app now accepts your supported authorized inputs and project parameters, runs the actual engines, preserves original findings, searches literal evidence, exports exact files and restores durable SQLite history. Prepared fictional cases are inside this same app. [Usage, privacy, workflow meanings and native validation](docs/native-workbench.md). No live model, host collection, enforcement or background upload is available. Created by Jason Stys; no release/installation is implied by a local candidate build.
+
 Created by **Jason Stys**. A defensive portfolio lab for default-deny service dependencies, workload admission, posture freshness, quarantine, policy-change analysis and reproducible packet-level assurance.
 
 **Segmentation is not a complete zero-trust architecture.** The offline admission engine uses ephemeral synthetic MAC proofs, not real certificates. The separate Linux kernel test enforces IPv4 TCP transport permissions, not identities. No workstation firewall, cloud account, Kubernetes cluster or Docker installation is changed.
@@ -93,6 +97,9 @@ The historical accepted-source baseline passed 70 tests; the November 9 continui
 | [docs/contracts.md](docs/contracts.md) | Configuration and admission contracts. |
 | [docs/contributing.md](docs/contributing.md) | Coding and contribution rules. |
 | [docs/handbook.md](docs/handbook.md) | Zero-Trust Segmentation Lab handbook. |
+| [docs/licenses/tcl-9.0.4.txt](docs/licenses/tcl-9.0.4.txt) | Verbatim Tcl9.0.4 notice read from the actual verified Windows runtime zipfs. |
+| [docs/licenses/tk-9.0.4.txt](docs/licenses/tk-9.0.4.txt) | Verbatim Tk9.0.4 notice read from the actual verified Windows runtime zipfs. |
+| [docs/native-workbench.md](docs/native-workbench.md) | Native offline workbench. |
 | [docs/performance.md](docs/performance.md) | Complexity and performance methodology. |
 | [docs/release.md](docs/release.md) | Publication and rollback checklist. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded policy/matrix analysis timing, not network latency. |
@@ -100,6 +107,7 @@ The historical accepted-source baseline passed 70 tests; the November 9 continui
 | [docs/reports/continuity-2026-11-09.md](docs/reports/continuity-2026-11-09.md) | Transport continuity preview validation — November 9, 2026. |
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual admission outcomes, L4 matrix and reachability analysis. |
+| [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native segmentation workbench validation. |
 | [docs/reports/native.json](docs/reports/native.json) | Actual isolated namespace packet, revocation and cleanup evidence. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
@@ -110,26 +118,36 @@ The historical accepted-source baseline passed 70 tests; the November 9 continui
 | [docs/usage.md](docs/usage.md) | Usage and troubleshooting. |
 | [docs/validation.md](docs/validation.md) | Validation evidence. |
 | [examples/continuity-requirements.json](examples/continuity-requirements.json) | Owner-authored fictional direct availability and isolation expectations for expiry review. |
+| [examples/desktop/quarantined.json](examples/desktop/quarantined.json) | Fictional api-quarantine policy; no live network, automatic enforcement or approved change. |
 | [examples/policy.json](examples/policy.json) | Reviewed four-workload inventory and exact TCP segmentation rules. |
 | [examples/requests.jsonl](examples/requests.jsonl) | Deterministic admission regression inputs and independent expected decisions. |
 | [pyproject.toml](pyproject.toml) | Jason Stys: strict typed standard-library runtime and branch coverage across every runtime module. |
 | [requirements-dev.in](requirements-dev.in) | Jason Stys: exact development-only tools; Python runtime uses only the standard library. |
 | [requirements-dev.lock](requirements-dev.lock) | Universal full hash-locked Python development graph. |
+| [requirements-native.lock](requirements-native.lock) | Exact hash-locked Windows portable build graph; no runtime setup/download on user launch. |
 | [scripts/benchmark.py](scripts/benchmark.py) | Jason Stys: correctness-checked admission/matrix/graph timing and allocation observations, not native packet latency. |
+| [scripts/build\_native.py](scripts/build_native.py) | Build the complete real offline workbench as one Windows portable executable. Jason Stys. |
 | [scripts/code\_map.py](scripts/code_map.py) | Jason Stys: exact Python AST definition/parameter/variable maps and lexical Bash/workflow line indexes. |
 | [scripts/file\_guide.py](scripts/file_guide.py) | Jason Stys: exact tracked-file README purpose inventory, unknown files fail rather than receive guesses. |
 | [scripts/fixtures.py](scripts/fixtures.py) | Jason Stys: generate deterministic reviewed inventory and admission oracles from independent scenario definitions. |
 | [scripts/native.py](scripts/native.py) | Jason Stys: actual IPv4/IPv6 TCP/UDP and state-revocation tests inside owned hosted-runner namespaces only. |
 | [scripts/native.sh](scripts/native.sh) | Jason Stys: create and clean only owned disposable CI network namespaces; never touch host interfaces/firewall. |
+| [scripts/native\_acceptance.py](scripts/native_acceptance.py) | Real frozen widget/core/history/export and honest failure-evidence acceptance. Jason Stys. |
+| [scripts/native\_entry.py](scripts/native_entry.py) | Launch the actual bundled offline project workbench; no setup shell commands. Jason Stys. |
 | [scripts/publication\_text.py](scripts/publication_text.py) | Jason Stys: inspect only named reviewed Office editions without hiding their XML. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
+| [scripts/test\_native\_app.py](scripts/test_native_app.py) | Run the real frozen workbench twice with an owned synthetic profile and exact bundle persistence. Jason Stys. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Jason Stys: privacy, exact fixture provenance, tracked-source and no-cache SHA-pinned workflow gates. |
 | [tests/test\_continuity.py](tests/test_continuity.py) | Jason Stys: direct dependency invariant and exact synthetic-time boundary regressions. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | Jason Stys: strict policy boundaries, ambiguous JSON rejection and bounded inventory/rule invariants. |
+| [tests/test\_desktop\_gui.py](tests/test_desktop_gui.py) | Presentation-adapter unit tests with real core/SQLite workers; real widgets are separately frozen-tested. Jason Stys. |
+| [tests/test\_desktop\_project.py](tests/test_desktop_project.py) | Independent direct-versus-pivot, expiry, full16-workload export and dummy-proof GUI adapters. Jason Stys. |
+| [tests/test\_desktop\_state.py](tests/test_desktop_state.py) | Independent offline desktop ownership, byte-bound, SQLite and non-overwrite regressions. Jason Stys. |
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: real CLI outputs, exact fixture oracles, input limits, escaping, private permissions and no overwrite. |
 | [tests/test\_native\_guard.py](tests/test_native_guard.py) | Jason Stys: native test guard regressions require no privileges and make no network changes. |
 | [tests/test\_policy.py](tests/test_policy.py) | Jason Stys: actual admission decisions, exact identity/freshness binding, quarantine, graph and exporter regression. |
 | [tests/test\_publication\_text.py](tests/test_publication_text.py) | Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content. |
+| [tests/test\_reader\_races.py](tests/test_reader_races.py) | Actual opened-device and POSIX regular-to-FIFO replacement regressions for bounded readers. Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Official Linux scanner versions, URLs and SHA256 digests. |
 | [ztlab/\_\_init\_\_.py](ztlab/__init__.py) | Jason Stys: offline segmentation evaluation; importing this package changes no network state. |
 | [ztlab/admission.py](ztlab/admission.py) | Jason Stys: caller-bound synthetic attestation and per-request policy decisions independent of network location. |
@@ -138,6 +156,10 @@ The historical accepted-source baseline passed 70 tests; the November 9 continui
 | [ztlab/compiler.py](ztlab/compiler.py) | Jason Stys: deterministic namespace-scoped nftables projection; exports rules but never applies them. |
 | [ztlab/continuity.py](ztlab/continuity.py) | Jason Stys: non-enforcing transport permission timeline and owner-authored dependency invariants. |
 | [ztlab/contracts.py](ztlab/contracts.py) | Jason Stys: bounded strict inventory, flow and rule contracts; no paths or labels are interpreted as commands. |
+| [ztlab/desktop.py](ztlab/desktop.py) | Native offline workbench: real project inputs, analysis, searchable evidence, history and export. Jason Stys. |
+| [ztlab/desktop\_io.py](ztlab/desktop_io.py) | Bounded regular descriptor reads and strict finite JSON for owner-local desktop state. Jason Stys. |
+| [ztlab/desktop\_project.py](ztlab/desktop_project.py) | Actual offline admission, direct permission graph, policy comparison and expiry review. Jason Stys. |
+| [ztlab/desktop\_state.py](ztlab/desktop_state.py) | Owner-local desktop profile, bounded durable bundles and non-overwriting export. Jason Stys. |
 | [ztlab/evidence.py](ztlab/evidence.py) | Jason Stys: bounded synthetic admission replay and exclusive metadata-only JSON/HTML/nft evidence outputs. |
 
 <!-- END FILE GUIDE -->

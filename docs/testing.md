@@ -27,3 +27,8 @@ This proves the **tested kernel projection**, not real workload authentication, 
 Four OS/Python jobs (Linux 3.12/3.14, Windows 3.14, macOS 3.14), a privileged disposable native job, locked dependency/secret/workflow checks and CodeQL security-extended. Native Bash also passes bash -n and shellcheck.
 
 No artifact/cache upload; CodeQL trap/dependency caches and database upload disabled. Synthetic results are normalized into docs/reports only after actual success. Private account billing/storage evidence is never published.
+
+
+## Native offline workbench 1.1.0
+
+[Actual graphical workflows, private owner-local storage, limits and Windows packaging](native-workbench.md). Existing CLI/domain/security gates remain. The native source adapter uses the actual project engines, not prerecorded results or a separate demo app; historical evidence stays bound to its original dated source.
